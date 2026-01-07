@@ -1,0 +1,94 @@
+.cbtb {
+	display:none;
+}
+@media (max-width:900px) {
+    .hero {
+        background-image:none !important;
+    }
+}
+#player, .bitmovinplayer-poster {
+	max-height: 100vh;
+}
+/* volume button */
+@keyframes VOLUME_SMALL_WAVE_FLASH {
+      0% { opacity: 0; }
+     33% { opacity: 1; }
+     66% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  @keyframes VOLUME_LARGE_WAVE_FLASH {
+      0% { opacity: 0; }
+     33% { opacity: 1; }
+     66% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  .volume__small-wave {
+    animation: VOLUME_SMALL_WAVE_FLASH 2s infinite;
+    opacity: 0;
+  }
+
+  .volume__large-wave {
+    animation: VOLUME_LARGE_WAVE_FLASH 2s infinite .3s;
+    opacity: 0;
+  }
+/* Vidalytics Video Overlay */
+#bmpui-id-7 .bmpui-container-wrapper {
+	position: relative;
+	top:-50px;
+}
+#bmpui-id-7 .bmpui-container-wrapper {
+	filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
+}
+/* NEW TIMER */
+.purchaseCounterStart .flip-clock-wrapper ul {
+	background: #FFC800;
+}
+.purchaseCounterStart .flip-clock-wrapper ul li a div.up:after {
+	background-color: #CCA30E;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+.purchaseCounterStart .flip-clock-wrapper ul li a div div.inn {
+	color: #000;
+	font-family: fira sans extra condensed,Impact,sans-serif;
+	text-shadow: 0 1px 1px rgba(0,0,0,0);
+	background-color: #FFC800;
+}
+.purchaseCounterStart .flip-clock-dot {
+	background: #CCA30E;
+}
+.prefer-to-read {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0 6rem;
+}
+.prefer-to-read a {
+	color: white;
+    font-size: 1rem;
+	background:#4477b1;
+	border-radius:99px;
+	padding:0.5rem 2rem;
+}
+.prefer-to-read a:hover {
+	color: white;
+	background:#34649A;
+	text-decoration: none;
+}
+/* Vidalytics Video on Desktop and Mobile */
+.vidalyticsWidthFix {
+	max-width:94%;
+	margin:auto;
+}
+.vidalyticsBackgroundFix {
+	background:black !important;
+}
+.videoWrapper {
+    position: relative;
+    padding-top: 25px;
+    height: 0;
+}
+.videoWrapper {
+    padding-bottom: 52.9%;
+}

@@ -1,0 +1,23 @@
+# Pasta duplicada vazia
+apex-signalhouse-pagesED-cta1/
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Arquivos do editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Arquivos temporários
+*.log
+*.tmp
+.cache/
+
+# Dependências (caso adicione no futuro)
+node_modules/
+vendor/
