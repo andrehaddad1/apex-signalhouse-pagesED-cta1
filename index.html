@@ -3,13 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
     
-    <script
-      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-      data-utmify-prevent-xcod-sck
-      data-utmify-prevent-subids
-      async
-      defer
-    ></script>
+
     
     <title>Alpine Nutritional Sciences</title>
     <!-- Fonts -->
@@ -233,7 +227,7 @@
 			<div class="max-w-6xl mx-auto px-2">
 				<!-- Purchase Boxes -->
 				<div class="cta-boxes cta-boxes-new">
-	<a href="https://www.checkout-ds24.com/product/636579/?ds24tr=apex&utm_source=SmsSig-ED1" class="cta-box pack6 new6pack" style="text-decoration: none; color: inherit; display: block;">
+	<a href="https://www.checkout-ds24.com/product/636579/?ds24tr=apex" class="cta-box pack6 new6pack checkout-link" style="text-decoration: none; color: inherit; display: block;">
 		<div class="bottle-title text-center">
 			<h3>6 Bottles</h3>
 			<p>6-Month Supply</p>
@@ -268,7 +262,7 @@
 		<div class="mt-6"><img src="images/credit-card-icons.png"></div>
 
 	</a>
-	<a href="https://www.checkout-ds24.com/product/636576/?ds24tr=apex&utm_source=SmsSig-ED1" class="cta-box pack1" style="text-decoration: none; color: inherit; display: block;">
+	<a href="https://www.checkout-ds24.com/product/636576/?ds24tr=apex" class="cta-box pack1 checkout-link" style="text-decoration: none; color: inherit; display: block;">
 		<div class="bottle-title text-center">
 			<h3>2 Bottles</h3>
 			<p>2-Month Supply</p>
@@ -298,7 +292,7 @@
 		<div class="mt-6"><img src="images/credit-card-icons.png"></div>
 
 	</a>
-	<a href="https://www.checkout-ds24.com/product/636577/?ds24tr=apex&utm_source=SmsSig-ED1" class="cta-box pack3" style="text-decoration: none; color: inherit; display: block;">
+	<a href="https://www.checkout-ds24.com/product/636577/?ds24tr=apex" class="cta-box pack3 checkout-link" style="text-decoration: none; color: inherit; display: block;">
 		<div class="bottle-title text-center">
 			<h3>3 Bottles</h3>
 			<p>3-Month Supply</p>
@@ -371,7 +365,7 @@
 			</div>
 			<!-- Purchase Boxes -->
 			<div class="cta-boxes cta-boxes-new">
-	<a href="https://www.checkout-ds24.com/product/636579/?ds24tr=apex&utm_source=SmsSig-ED1" class="cta-box pack6 new6pack" style="text-decoration: none; color: inherit; display: block;">
+	<a href="https://www.checkout-ds24.com/product/636579/?ds24tr=apex" class="cta-box pack6 new6pack checkout-link" style="text-decoration: none; color: inherit; display: block;">
 		<div class="bottle-title text-center">
 			<h3>6 Bottles</h3>
 			<p>6-Month Supply</p>
@@ -406,7 +400,7 @@
 		<div class="mt-6"><img src="images/credit-card-icons.png"></div>
 
 	</a>
-	<a href="https://www.checkout-ds24.com/product/636576/?ds24tr=apex&utm_source=SmsSig-ED1" class="cta-box pack1" style="text-decoration: none; color: inherit; display: block;">
+	<a href="https://www.checkout-ds24.com/product/636576/?ds24tr=apex" class="cta-box pack1 checkout-link" style="text-decoration: none; color: inherit; display: block;">
 		<div class="bottle-title text-center">
 			<h3>2 Bottles</h3>
 			<p>2-Month Supply</p>
@@ -436,7 +430,7 @@
 		<div class="mt-6"><img src="images/credit-card-icons.png"></div>
 
 	</a>
-	<a href="https://www.checkout-ds24.com/product/636577/?ds24tr=apex&utm_source=SmsSig-ED1" class="cta-box pack3" style="text-decoration: none; color: inherit; display: block;">
+	<a href="https://www.checkout-ds24.com/product/636577/?ds24tr=apex" class="cta-box pack3 checkout-link" style="text-decoration: none; color: inherit; display: block;">
 		<div class="bottle-title text-center">
 			<h3>3 Bottles</h3>
 			<p>3-Month Supply</p>
@@ -1674,6 +1668,45 @@ Please modify the $pattern variable to reflect which pages are present as in var
 	});
 
 /* END VTURB SETTINGS */
+
+/* UTM Source Handler - Captura da URL e adiciona aos links de checkout */
+(function() {
+	// Função para pegar parâmetro da URL
+	function getUrlParameter(name) {
+		const urlParams = new URLSearchParams(window.location.search);
+		return urlParams.get(name);
+	}
+
+	// Função para adicionar UTM aos links de checkout
+	function addUtmToCheckoutLinks() {
+		const utmSource = getUrlParameter('utm_source');
+		
+		// Se não houver utm_source na URL, não faz nada
+		if (!utmSource) return;
+
+		// Seleciona todos os links de checkout
+		const checkoutLinks = document.querySelectorAll('.checkout-link');
+		
+		checkoutLinks.forEach(function(link) {
+			const href = link.getAttribute('href');
+			
+			// Verifica se já tem utm_source no link
+			if (href && !href.includes('utm_source=')) {
+				// Adiciona utm_source ao link
+				const separator = href.includes('?') ? '&' : '?';
+				link.setAttribute('href', href + separator + 'utm_source=' + encodeURIComponent(utmSource));
+			}
+		});
+	}
+
+	// Executa quando o DOM estiver pronto
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', addUtmToCheckoutLinks);
+	} else {
+		addUtmToCheckoutLinks();
+	}
+})();
+/* END UTM Source Handler */
 	
 /* New Get Started */
 $("#getStarted").click(function() {
